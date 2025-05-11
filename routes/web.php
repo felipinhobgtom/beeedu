@@ -6,6 +6,6 @@ Route::get('/', function () {
     return inertia('Home');
 });
 
-Route::get('/info', function () {
-    return phpinfo();
+Route::get('/register', function () {
+    return inertia('Register');
 });

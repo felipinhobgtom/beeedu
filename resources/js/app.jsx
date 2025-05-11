@@ -7,6 +7,10 @@ createInertiaApp({
         const pages = import.meta.glob('./Pages/**/*.jsx', { eager: true })
         return pages[`./Pages/${name}.jsx`]
     },
+    progress: {
+        color: "#3254cf",
+        delay: "3"
+    },
     setup({ el, App, props }) {
         createRoot(el).render(<App {...props} />)
     },
