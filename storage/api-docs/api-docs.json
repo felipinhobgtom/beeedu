@@ -1,0 +1,43 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Registro",
+        "description": "Endpoint de registro da API",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/register": {
+            "post": {
+                "tags": [
+                    "Registrar"
+                ],
+                "summary": "Insere o usuario no banco de dados",
+                "operationId": "b0ddf945433c070c3c4e7176dd8240aa",
+                "responses": {
+                    "200": {
+                        "description": "Mensagem de confirmacao",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Success!"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Registrar",
+            "description": "Registrar"
+        }
+    ]
+}
