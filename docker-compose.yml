@@ -1,4 +1,29 @@
 services:
+    postgres:
+        image: postgres:15
+        environment:
+            - POSTGRES_USER=n8n
+            - POSTGRES_PASSWORD=n8n
+            - POSTGRES_DB=n8n
+        volumes:
+            - n8n_postgres_data:/var/lib/postgresql/data
+        networks:
+            - sail
+    n8n:
+        image: n8nio/n8n
+        ports:
+            - '5678:5678'
+        environment:
+            - DB_TYPE=postgresdb
+            - DB_POSTGRESDB_HOST=postgres
+            - DB_POSTGRESDB_PORT=5432
+            - DB_POSTGRESDB_DATABASE=n8n
+            - DB_POSTGRESDB_USER=n8n
+            - DB_POSTGRESDB_PASSWORD=n8n
+        depends_on:
+            - postgres
+        networks:
+            - sail
     laravel.test:
         build:
             context: ./vendor/laravel/sail/runtimes/8.4
@@ -21,30 +46,32 @@ services:
             - '.:/var/www/html'
         networks:
             - sail
-        depends_on:
-            - mongodb
-    mongodb:
-        image: 'mongodb/mongodb-atlas-local:latest'
-        environment:
-            - 'MONGODB_INITDB_ROOT_USERNAME=${MONGODB_USERNAME:-}'
-            - 'MONGODB_INITDB_ROOT_PASSWORD=${MONGODB_PASSWORD:-}'
-        volumes:
-            - 'sail-mongodb:/data/db'
-        ports:
-            - '${FORWARD_MONGODB_PORT:-27017}:27017'
-        networks:
-            - sail
-        healthcheck:
-            test:
-                - CMD
-                - mongosh
-                - 'mongodb://localhost:27017/admin'
-                - '--eval=db.runCommand({ping:1})'
-            retries: 3
-            timeout: 5s
+        # depends_on:
+        #     - mongodb
+    # mongodb:
+    #     image: 'mongodb/mongodb-atlas-local:latest'
+    #     environment:
+    #         - 'MONGODB_INITDB_ROOT_USERNAME=${MONGODB_USERNAME:-}'
+    #         - 'MONGODB_INITDB_ROOT_PASSWORD=${MONGODB_PASSWORD:-}'
+    #     volumes:
+    #         - 'sail-mongodb:/data/db'
+    #     ports:
+    #         - '${FORWARD_MONGODB_PORT:-27017}:27017'
+    #     networks:
+    #         - sail
+    #     healthcheck:
+    #         test:
+    #             - CMD
+    #             - mongosh
+    #             - 'mongodb://localhost:27017/admin'
+    #             - '--eval=db.runCommand({ping:1})'
+    #         retries: 3
+    #         timeout: 5s
 networks:
     sail:
         driver: bridge
 volumes:
     sail-mongodb:
+        driver: local
+    n8n_postgres_data:
         driver: local
