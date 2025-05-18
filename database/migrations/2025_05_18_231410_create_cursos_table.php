@@ -11,18 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('empresas', function (Blueprint $table) {
+        Schema::create('cursos', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
-            $table->string('name');
-            $table->string('organization');
-            $table->string('email')->unique();
-            $table->string('cnpj')->unique();
-            $table->string('password');
+            $table->string('titulo');
+            $table->json('empresa_id');
+            $table->dateTime('duracao');
+            $table->json('badge_conclusao');
+            $table->string('descricao');
             $table->string('area_atuacao');
-            $table->json('freelas_postados')->default([]);
-            $table->json('cursos_oferecidos')->default([]);
             $table->boolean('status');
+            $table->enum('nivel', ['iniciante','intermediario','avancado']);
+            $table->string('categoria');
+            $table->timestamps();
         });
     }
 
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('empresas');
+        Schema::dropIfExists('cursos');
     }
 };

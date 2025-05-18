@@ -19,8 +19,16 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'tel',
+        'cpf',
         'email',
         'password',
+        'budge',
+        'address',
+        'organization',
+        'cursos',
+        'role',
+        'profile_picture'
     ];
 
     /**
@@ -46,6 +54,7 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'cursos' => 'mongodb.objectid_array'
         ];
     }
 }
