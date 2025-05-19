@@ -1,10 +1,5 @@
-import { Header } from "../Components/Header/Header";
-
 export default function Home() {
-    return (
-        <>
-            <Header />
-            <h1>Hello World!</h1>
-        </>
+    return (        
+            <h1>Isso aq eh onde a landing page deve estar</h1>
     )
 }

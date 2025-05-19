@@ -1,5 +1,198 @@
+import { useForm } from "@inertiajs/react";
+import { useState } from "react";
+
 export default function Register () {
+    const [isEmpresa, setIsEmpresa] = useState(false);
+    
+    const { data, setData, post, processing, errors, reset } = useForm({
+        is_empresa: false,
+        name: '',
+        email: '',
+        password: '',
+        password_confirmation: '',
+        // Campos comuns acima, campos específicos abaixo
+        
+        // Campos específicos para User (aluno)
+        tel: '',
+        cpf: '',
+        address: '',
+        
+        // Campos específicos para Empresa
+        organization: '',
+        cnpj: '',
+        area_atuacao: '',
+    });
+
+    const handleAccountTypeChange = (type) => {
+        setIsEmpresa(type);
+        setData('is_empresa', type);
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        post('/api/register', {
+            onSuccess: () => {
+                reset();
+                // Você pode adicionar um redirecionamento ou mensagem de sucesso aqui
+            },
+        });
+    };
+
     return (
-        <h1>Pagina de registro</h1>
-    )
+        <>
+            <div className="container mx-auto px-4 py-8">
+                <h1 className="text-2xl font-bold mb-6">Criar uma nova conta</h1>
+                
+                {/* Seleção de tipo de conta */}
+                <div className="mb-6">
+                    <div className="flex space-x-4">
+                        <button
+                            type="button"
+                            className={`px-4 py-2 rounded ${isEmpresa ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
+                            onClick={() => handleAccountTypeChange(false)}
+                        >
+                            Conta de Aluno
+                        </button>
+                        <button
+                            type="button"
+                            className={`px-4 py-2 rounded ${!isEmpresa ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
+                            onClick={() => handleAccountTypeChange(true)}
+                        >
+                            Conta de Empresa
+                        </button>
+                    </div>
+                </div>
+                
+                <form onSubmit={handleSubmit}>
+                    {/* Campos comuns para ambos os tipos */}
+                    <div className="mb-4">
+                        <label className="block mb-1">Nome</label>
+                        <input
+                            type="text"
+                            className="w-full p-2 border rounded"
+                            value={data.name}
+                            onChange={e => setData('name', e.target.value)}
+                        />
+                        {errors.name && <div className="text-red-500 text-sm">{errors.name}</div>}
+                    </div>
+                    
+                    <div className="mb-4">
+                        <label className="block mb-1">Email</label>
+                        <input
+                            type="email"
+                            className="w-full p-2 border rounded"
+                            value={data.email}
+                            onChange={e => setData('email', e.target.value)}
+                        />
+                        {errors.email && <div className="text-red-500 text-sm">{errors.email}</div>}
+                    </div>
+                    
+                    <div className="mb-4">
+                        <label className="block mb-1">Senha</label>
+                        <input
+                            type="password"
+                            className="w-full p-2 border rounded"
+                            value={data.password}
+                            onChange={e => setData('password', e.target.value)}
+                        />
+                        {errors.password && <div className="text-red-500 text-sm">{errors.password}</div>}
+                    </div>
+                    
+                    <div className="mb-4">
+                        <label className="block mb-1">Confirmar Senha</label>
+                        <input
+                            type="password"
+                            className="w-full p-2 border rounded"
+                            value={data.password_confirmation}
+                            onChange={e => setData('password_confirmation', e.target.value)}
+                        />
+                    </div>
+                    
+                    {/* Campos específicos para Aluno */}
+                    {!isEmpresa && (
+                        <>
+                            <div className="mb-4">
+                                <label className="block mb-1">Telefone</label>
+                                <input
+                                    type="text"
+                                    className="w-full p-2 border rounded"
+                                    value={data.tel}
+                                    onChange={e => setData('tel', e.target.value)}
+                                />
+                                {errors.tel && <div className="text-red-500 text-sm">{errors.tel}</div>}
+                            </div>
+                            
+                            <div className="mb-4">
+                                <label className="block mb-1">CPF</label>
+                                <input
+                                    type="text"
+                                    className="w-full p-2 border rounded"
+                                    value={data.cpf}
+                                    onChange={e => setData('cpf', e.target.value)}
+                                />
+                                {errors.cpf && <div className="text-red-500 text-sm">{errors.cpf}</div>}
+                            </div>
+                            
+                            <div className="mb-4">
+                                <label className="block mb-1">Endereço</label>
+                                <input
+                                    type="text"
+                                    className="w-full p-2 border rounded"
+                                    value={data.address}
+                                    onChange={e => setData('address', e.target.value)}
+                                />
+                                {errors.address && <div className="text-red-500 text-sm">{errors.address}</div>}
+                            </div>
+                        </>
+                    )}
+                    
+                    {/* Campos específicos para Empresa */}
+                    {isEmpresa && (
+                        <>
+                            <div className="mb-4">
+                                <label className="block mb-1">Nome da Organização</label>
+                                <input
+                                    type="text"
+                                    className="w-full p-2 border rounded"
+                                    value={data.organization}
+                                    onChange={e => setData('organization', e.target.value)}
+                                />
+                                {errors.organization && <div className="text-red-500 text-sm">{errors.organization}</div>}
+                            </div>
+                            
+                            <div className="mb-4">
+                                <label className="block mb-1">CNPJ</label>
+                                <input
+                                    type="text"
+                                    className="w-full p-2 border rounded"
+                                    value={data.cnpj}
+                                    onChange={e => setData('cnpj', e.target.value)}
+                                />
+                                {errors.cnpj && <div className="text-red-500 text-sm">{errors.cnpj}</div>}
+                            </div>
+                            
+                            <div className="mb-4">
+                                <label className="block mb-1">Área de Atuação</label>
+                                <input
+                                    type="text"
+                                    className="w-full p-2 border rounded"
+                                    value={data.area_atuacao}
+                                    onChange={e => setData('area_atuacao', e.target.value)}
+                                />
+                                {errors.area_atuacao && <div className="text-red-500 text-sm">{errors.area_atuacao}</div>}
+                            </div>
+                        </>
+                    )}
+                    
+                    <button
+                        type="submit"
+                        className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+                        disabled={processing}
+                    >
+                        {processing ? 'Registrando...' : 'Registrar'}
+                    </button>
+                </form>
+            </div>
+        </>
+    );
 }
