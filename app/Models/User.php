@@ -28,7 +28,8 @@ class User extends Authenticatable
         'organization',
         'cursos',
         'role',
-        'profile_picture'
+        'profile_picture',
+        'remember_token'
     ];
 
     /**
