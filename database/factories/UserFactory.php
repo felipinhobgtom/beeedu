@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\User;
+use App\Services\N8nService;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -33,7 +34,7 @@ class UserFactory extends Factory
             'cpf' => $this->faker->cpf(false),
             'email' => $this->faker->unique()->safeEmail(),
             'budge' => $this->faker->randomNumber(4),
-            'address' => $this->faker->address(),
+            'address' => $this->faker->streetAddress(),
             'organization' => $this->faker->domainName(),
             'role' => $this->faker->randomElement(['student', 'teacher', 'admin']),
             'email_verified' => true,
@@ -50,5 +51,16 @@ class UserFactory extends Factory
         return $this->state(fn(array $attributes) => [
             'email_verified_at' => null,
         ]);
+    }
+
+    public function configure()
+    {
+        return $this->afterCreating(function (User $user) {
+            $n8nService = app(N8nService::class);
+            $n8nService->triggerUserWorkflow(
+                $user,
+                config('services.n8n.user_creation_workflow')
+            );
+        });
     }
 }
