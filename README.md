@@ -1,61 +1,126 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
-
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+  <img src="public/logo.jpg" alt="Logo BEEEDU" width="200" />
 </p>
 
-## About Laravel
+<h1 align="center">BEEEDU</h1>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+<p align="center">
+  Plataforma de conexão entre alunos e empresas com Laravel, React, MongoDB, Swagger, Docker, n8n e Inertia.js.
+</p>
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+<p align="center">
+  Desenvolvido para o <strong>Edu Hackathon 2025</strong>, uma iniciativa do Instituto Saber Social em parceria com a Edugital, EBAC e Education for Sharing. O evento tem como objetivo reunir profissionais e estudantes para criar soluções inovadoras voltadas à educação pública brasileira.
+</p>
 
-## Learning Laravel
+<p align="center">
+  <a href="#"><img alt="License" src="https://img.shields.io/badge/license-MIT-blue.svg"/></a>
+  <a href="#"><img alt="Made with Laravel" src="https://img.shields.io/badge/Laravel-10.x-red?logo=laravel"/></a>
+  <a href="#"><img alt="React" src="https://img.shields.io/badge/React-18.x-61DAFB?logo=react"/></a>
+  <a href="#"><img alt="MongoDB" src="https://img.shields.io/badge/MongoDB-6.x-47A248?logo=mongodb"/></a>
+  <a href="#"><img alt="Dockerized" src="https://img.shields.io/badge/Docker-ready-2496ED?logo=docker"/></a>
+</p>
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+<p align="center">
+  <em>Conecte estudantes da rede pública ao mercado de trabalho com cursos, oportunidades e gamificação.</em>
+</p>
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+---
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## 🎯 Objetivo
 
-## Laravel Sponsors
+O BEEEDU tem como missão aproximar estudantes da rede pública de oportunidades reais no mercado de trabalho. A plataforma oferece uma jornada gamificada com cursos, reputação e conexão com empresas, preparando os alunos para o futuro de forma acessível e engajadora.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+Transformando trajetórias estudantis por meio da tecnologia e inovação social. 🚀
 
-### Premium Partners
+---
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development/)**
-- **[Active Logic](https://activelogic.com)**
+## 📸 Preview
 
-## Contributing
+<p align="center">
+  <img src="public/preview.png" alt="Tela principal do sistema" width="600"/>
+  <br/>
+  <em>Dashboard do aluno com cursos, reputação e oportunidades</em>
+</p>
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+---
 
-## Code of Conduct
+## 🚀 Tecnologias
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+- Laravel + Inertia.js
+- React
+- MongoDB
+- Swagger (API Docs)
+- n8n (Integrações)
+- Docker (via Laravel Sail)
 
-## Security Vulnerabilities
+---
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## 💻 Funcionalidades
 
-## License
+- [x] Cadastro e login de alunos e empresas
+- [x] Feed de oportunidades (freelas)
+- [x] Cursos com sistema de progresso
+- [x] Reputação e gamificação
+- [x] Painel administrativo
+- [x] Matching inteligente
+- [x] Integrações com n8n
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+---
+
+## 🛠️ Instalação
+
+```bash
+# Clone o projeto
+git clone https://github.com/seu-usuario/BEEEDU.git
+cd BEEEDU
+
+# Backend
+composer install
+php artisan key:generate
+php artisan migrate
+
+# Frontend
+npm install
+
+# Rodar o projeto
+./vendor/bin/sail up
+
+```
+
+## 📁 Estrutura do Projeto
+
+```bash
+.
+├── README.md
+├── app
+│   ├── Http
+│   │   ├── Controllers
+│   │   │   ├── Controller.php
+│   │   │   └── api/
+│   │   └── Middleware/
+│   ├── Models/
+│   └── Providers/
+├── bootstrap/
+├── config/
+├── database
+│   ├── factories/
+│   ├── migrations/
+│   └── seeders/
+├── docker-compose.yml
+├── public/
+├── resources
+│   ├── css/
+│   ├── js/
+│   │   ├── Components/
+│   │   ├── Pages/
+│   │   ├── app.jsx
+│   │   └── bootstrap.js
+│   └── views/
+├── routes/
+├── tests/
+├── vite.config.js
+├── package.json
+├── composer.json
+└── .env.example
+```
