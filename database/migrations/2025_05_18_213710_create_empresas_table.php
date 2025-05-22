@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('area_atuacao');
             $table->json('freelas_postados')->default([]);
             $table->json('cursos_oferecidos')->default([]);
-            $table->boolean('status');
+            $table->boolean('active');
         });
     }
 

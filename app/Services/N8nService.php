@@ -2,9 +2,8 @@
 
 namespace App\Services;
 
-use App\Models\User;
-use Http;
-use Log;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 
 class N8nService
 {
@@ -16,8 +15,9 @@ class N8nService
         //
     }
 
-    public function triggerUserWorkflow(User $user, String $webhookUrl) {
-        $response = Http::post($webhookUrl, $user);
+    public function triggerUserWorkflow($data, String $webhookUrl) {
+        $data_array = $data->toArray();
+        $response = Http::post($webhookUrl, $data_array);
         if ($response->successful()) {
             Log::info("Enviando dados para o workflow...");
         } else {

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Empresa;
 use App\Models\User;
 use App\Services\N8nService;
 use Auth;
@@ -80,13 +81,35 @@ class RegisterController extends Controller
         ]);
 
         $this->n8nService->triggerUserWorkflow($user, env("N8N_USER_CREATION_WORKFLOW"));
-
         Auth::login($user);
 
         return redirect()->route('home')->with('success', 'Usuário registrado e logado com sucesso!');
     }
     public function create_empresa_account(Request $req)
     {
-        dd($req);
+        $validated = $req->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:mongodb.users'],
+            'password' => ['required', 'confirmed', 'min:8'],
+            'cnpj' => ['required', 'string', 'max:14', 'min:14'],
+            'organization' => ['required', 'string', 'min:1'],
+            'area_atuacao' => ['string', 'min:3']
+        ]);
+
+        $validated['password'] = Hash::make($validated['password']);
+
+        $empresa = Empresa::create([
+            'name' => $validated['name'],
+            'email' => $validated['email'],
+            'password'=> $validated['password'],
+            'cnpj' => $validated['cnpj'],
+            'organization' => $validated['organization'],
+            'area_atuacao' => $validated['area_atuacao'],
+            'active' => true
+        ]);
+
+        $this->n8nService->triggerUserWorkflow($empresa, env("N8N_EMPRESA_CREATION_WORKFLOW"));
+        Auth::login($empresa);
+        return redirect()->route('home')->with('success', 'Usuario de empresa registrado e logado com sucesso!');
     }
 }
