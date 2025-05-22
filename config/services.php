@@ -34,5 +34,7 @@ return [
             'channel' => env('SLACK_BOT_USER_DEFAULT_CHANNEL'),
         ],
     ],
-
+    'n8n' => [
+        'user_creation_workflow' => env('N8N_USER_CREATION_WORKFLOW'),
+    ],
 ];

@@ -20,9 +20,9 @@ return new class extends Migration
             $table->json('budge');
             $table->json('address');
             $table->string('organization');
-            $table->json('cursos');
-            $table->enum('role', ['admin', 'user', 'guest']);
-            $table->string('profile_picture');
+            $table->json('cursos')->default([]);
+            $table->enum('role', ['student', 'teacher', 'admin']);
+            $table->string('profile_picture')->default('');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
@@ -34,9 +34,6 @@ return new class extends Migration
             $table->string('token');
             $table->timestamp('created_at')->nullable();
         });
-
-
-
     }
 
     /**

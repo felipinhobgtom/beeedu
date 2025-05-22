@@ -7,8 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Curso extends Model
 {
     //
-    
-
     protected $fillable = [
         'titulo',
         'empresa_id',
