@@ -21,10 +21,3 @@ yarn-error.log
 /.nova
 /.vscode
 /.zed
-composer.json
-composer.lock
-docker-compose.yml
-package.json
-package-lock.json
-.env.example
-.gitignore
