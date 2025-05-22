@@ -77,7 +77,7 @@ class RegisterController extends Controller
             'email' => $validated['email'],
             'password' => $validated['password'],
             'address' => $validated['address'],
-            'role' => 'student', // Definindo o papel padrão como estudante
+            'role' => 'student',
         ]);
 
         $this->n8nService->triggerUserWorkflow($user, env("N8N_USER_CREATION_WORKFLOW"));
@@ -94,6 +94,8 @@ class RegisterController extends Controller
             'cnpj' => ['required', 'string', 'max:14', 'min:14'],
             'organization' => ['required', 'string', 'min:1'],
             'area_atuacao' => ['string', 'min:3']
+        ], [
+            '*.unique' => 'Usuário ja existe.'
         ]);
 
         $validated['password'] = Hash::make($validated['password']);
