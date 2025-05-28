@@ -51,12 +51,12 @@ class LoginController extends Controller
 
         $user = Auth::user();
     
-        $token = $user->createToken('auth_token')->plainTextToken;
+        // $token = $user->createToken('auth_token')->plainTextToken;
 
-        return response()->json([
-            'message' => 'Login realizado com sucesso.',
-            'user' => $user,
-            'token' => $token
-        ]);
+        // return response()->json([
+        //     'message' => 'Login realizado com sucesso.',
+        //     'user' => $user,
+        //     'token' => $token
+        // ]);
     }
 }
