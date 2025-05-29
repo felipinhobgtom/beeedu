@@ -12,10 +12,10 @@ class N8nService
     /**
      * Create a new class instance.
      */
-    public function __construct()
-    {
-        //
-    }
+    // public function __construct()
+    // {
+    //     //
+    // }
 
     /**
      * Dispara um webhook n8n de forma resiliente e com logs detalhados.

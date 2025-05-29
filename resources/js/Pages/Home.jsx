@@ -3,19 +3,8 @@ import { Footer } from "../Components/Footer/Footer";
 
 import "../styles/home.css";
 
-<style>
-    {`
-          @keyframes flyBee {
-            0% { transform: translateX(0) translateY(0) rotate(0deg); }
-            25% { transform: translateX(-10px) translateY(-5px) rotate(-10deg); }
-            50% { transform: translateX(0) translateY(-10px) rotate(10deg); }
-            75% { transform: translateX(10px) translateY(-5px) rotate(-10deg); }
-            100% { transform: translateX(0) translateY(0) rotate(0deg); }
-          }
-        `}
-</style>;
-
 export default function Home() {
+
     return (
         <>
             <Header />
@@ -104,10 +93,10 @@ export default function Home() {
                                     para o futuro.
                                 </h3>
                                 <p className="fst-italic">
-                                    Nossa missão é conectar
-                                    estudantes da rede pública ao mercado de
-                                    trabalho por meio de uma plataforma
-                                    intuitiva, gamificada e inclusiva.
+                                    Nossa missão é conectar estudantes da rede
+                                    pública ao mercado de trabalho por meio de
+                                    uma plataforma intuitiva, gamificada e
+                                    inclusiva.
                                 </p>
                                 <p>
                                     Somos uma equipe apaixonada por inovação
@@ -213,9 +202,11 @@ export default function Home() {
                                 <div className="why-box">
                                     <h3>Por que escolher a BeeEdu?</h3>
                                     <p>
-                                       Conectamos a educação ao mercado de trabalho.
-
-                                       A BeeEdu aproxima os alunos do mundo real, ajudando-os a descobrir caminhos que combinam com seus talentos e interesses.
+                                        Conectamos a educação ao mercado de
+                                        trabalho. A BeeEdu aproxima os alunos do
+                                        mundo real, ajudando-os a descobrir
+                                        caminhos que combinam com seus talentos
+                                        e interesses.
                                     </p>
                                     <div className="text-center">
                                         <a href="#" className="more-btn">
@@ -236,10 +227,16 @@ export default function Home() {
                                         <div className="icon-box d-flex flex-column justify-content-center align-items-center">
                                             <i class="bi bi-controller"></i>
                                             <h4>
-                                                Aprendizado personalizado e gamificado.
+                                                Aprendizado personalizado e
+                                                gamificado.
                                             </h4>
                                             <p>
-                                                Nossa plataforma usa metas inteligentes, desafios e recompensas para manter os alunos engajados e motivados na própria jornada de desenvolvimento.
+                                                Nossa plataforma usa metas
+                                                inteligentes, desafios e
+                                                recompensas para manter os
+                                                alunos engajados e motivados na
+                                                própria jornada de
+                                                desenvolvimento.
                                             </p>
                                         </div>
                                     </div>
@@ -253,7 +250,11 @@ export default function Home() {
                                             <i class="bi bi-door-open-fill"></i>
                                             <h4>Parcerias que abrem portas.</h4>
                                             <p>
-                                                Trabalhamos com escolas, empresas e profissionais para oferecer mentorias, estágios e experiências reais que vão além da sala de aula.
+                                                Trabalhamos com escolas,
+                                                empresas e profissionais para
+                                                oferecer mentorias, estágios e
+                                                experiências reais que vão além
+                                                da sala de aula.
                                             </p>
                                         </div>
                                     </div>
@@ -265,11 +266,13 @@ export default function Home() {
                                     >
                                         <div className="icon-box d-flex flex-column justify-content-center align-items-center">
                                             <i class="bi bi-book"></i>
-                                            <h4>
-                                                Acreditamos em impacto.
-                                            </h4>
+                                            <h4>Acreditamos em impacto.</h4>
                                             <p>
-                                                Tudo o que construímos tem um propósito: empoderar os alunos para que alcancem seu potencial máximo e construam um futuro melhor.
+                                                Tudo o que construímos tem um
+                                                propósito: empoderar os alunos
+                                                para que alcancem seu potencial
+                                                máximo e construam um futuro
+                                                melhor.
                                             </p>
                                         </div>
                                     </div>
@@ -309,12 +312,13 @@ export default function Home() {
                                         </div>
 
                                         <h3>
-                                            <a href="#">
-                                                Design de Sites
-                                            </a>
+                                            <a href="#">Design de Sites</a>
                                         </h3>
                                         <p className="description">
-                                            Aprenda a criar páginas modernas, responsivas e acessíveis com foco na experiência do usuário. Explore HTML, CSS e boas práticas de layout.
+                                            Aprenda a criar páginas modernas,
+                                            responsivas e acessíveis com foco na
+                                            experiência do usuário. Explore
+                                            HTML, CSS e boas práticas de layout.
                                         </p>
                                         <div className="trainer d-flex justify-content-between align-items-center">
                                             <div className="trainer-profile d-flex align-items-center">
@@ -365,7 +369,11 @@ export default function Home() {
                                             </a>
                                         </h3>
                                         <p className="description">
-                                            Aprenda a transformar dados em insights com dashboards interativos no Power BI. Ideal para quem deseja iniciar no mundo da análise de dados.
+                                            Aprenda a transformar dados em
+                                            insights com dashboards interativos
+                                            no Power BI. Ideal para quem deseja
+                                            iniciar no mundo da análise de
+                                            dados.
                                         </p>
                                         <div className="trainer d-flex justify-content-between align-items-center">
                                             <div className="trainer-profile d-flex align-items-center">
@@ -378,7 +386,7 @@ export default function Home() {
                                                     href="#"
                                                     className="trainer-link"
                                                 >
-                                                     Fundação Analytica
+                                                    Fundação Analytica
                                                 </a>
                                             </div>
                                             <div className="trainer-rank d-flex align-items-center">
@@ -405,7 +413,9 @@ export default function Home() {
                                     />
                                     <div className="course-content">
                                         <div className="d-flex justify-content-between align-items-center mb-3">
-                                            <p className="category">Desenvolvimento Mobile</p>
+                                            <p className="category">
+                                                Desenvolvimento Mobile
+                                            </p>
                                         </div>
 
                                         <h3>
@@ -414,7 +424,10 @@ export default function Home() {
                                             </a>
                                         </h3>
                                         <p className="description">
-                                            Descubra como criar aplicativos móveis para Android e iOS usando a tecnologia React Native. Curso prático com projetos reais.
+                                            Descubra como criar aplicativos
+                                            móveis para Android e iOS usando a
+                                            tecnologia React Native. Curso
+                                            prático com projetos reais.
                                         </p>
                                         <div className="trainer d-flex justify-content-between align-items-center">
                                             <div className="trainer-profile d-flex align-items-center">

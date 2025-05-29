@@ -6,8 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Empresa;
 use App\Models\User;
 use App\Services\N8nService;
-use Auth;
-use Hash;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 
 /**
@@ -19,12 +19,12 @@ use Illuminate\Http\Request;
  */
 class RegisterController extends Controller
 {
-    protected $n8nService;
+    // protected $n8nService;
 
-    public function __construct(N8nService $n8nService)
-    {
-        $this->n8nService = $n8nService;
-    }
+    // public function __construct(N8nService $n8nService)
+    // {
+    //     $this->n8nService = $n8nService;
+    // }
 
     /**
      * @OA\Post(
