@@ -21,8 +21,6 @@ Route::middleware(["guest"])->group(function () {
     })->name('login');
 });
 
-Route::post('seila', [RegisterController::class, 'create_empresa_account']);
-
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', function () {
         return inertia('Dashboard');

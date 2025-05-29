@@ -40,7 +40,7 @@ class LoginController extends Controller
     {
         $credentials = $request->validate([
             'email' => ['required', 'email'],
-            'password' => ['required', 'string'],
+            'password' => ['required', 'string', 'min:8'],
         ]);
 
         if (!Auth::attempt($credentials)) {
@@ -50,13 +50,7 @@ class LoginController extends Controller
         }
 
         $user = Auth::user();
-    
-        // $token = $user->createToken('auth_token')->plainTextToken;
-
-        // return response()->json([
-        //     'message' => 'Login realizado com sucesso.',
-        //     'user' => $user,
-        //     'token' => $token
-        // ]);
+        Auth::login($user);
+        return redirect()->route('home')->with('success', 'Usuário registrado e logado com sucesso!');
     }
 }
