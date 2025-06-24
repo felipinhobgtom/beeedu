@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use function PHPUnit\Framework\returnValue;
 
 class Empresa extends Model
 {
@@ -16,12 +15,12 @@ class Empresa extends Model
         'area_atuacao',
         'freelas_postados',
         'cursos_oferecidos',
-        'status',   
+        'status',
     ];
 
     protected $connection = 'mongodb';
     protected $collection = 'empresas';
-    
+
     protected function casts()
     {
         return [
