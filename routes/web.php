@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\api\DashboardController;
 use App\Http\Controllers\api\RegisterController;
 use App\Http\Controllers\api\LoginController;
 use Illuminate\Support\Facades\Route;
@@ -22,9 +23,7 @@ Route::middleware(["guest"])->group(function () {
 });
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/dashboard', function () {
-        return inertia('Dashboard');
-    })->middleware('auth')->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'show'])->name('dashboard');
 
     Route::post('/logout', function () {
         Auth::logout();

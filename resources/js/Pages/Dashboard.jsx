@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { router, usePage } from "@inertiajs/react";
 
-export default function Dashboard() {
+export default function Dashboard({ auth, courses }) {
     const [selected, setSelected] = useState("dashboard");
 
-    const { auth } = usePage().props;
+
     const user = auth.user;
 
     const logout = () => {
@@ -14,11 +14,10 @@ export default function Dashboard() {
     const MenuItem = ({ id, label }) => (
         <button
             onClick={() => setSelected(id)}
-            className={`w-full text-left px-4 py-2 rounded transition ${
-                selected === id
-                    ? "bg-blue-600 text-white"
-                    : "text-gray-700 hover:bg-gray-100"
-            }`}
+            className={`w-full text-left px-4 py-2 rounded transition ${selected === id
+                ? "bg-blue-600 text-white"
+                : "text-gray-700 hover:bg-gray-100"
+                }`}
         >
             {label}
         </button>
@@ -51,11 +50,25 @@ export default function Dashboard() {
                 return (
                     <div>
                         <h2 className="text-2xl font-bold mb-2">Meus Cursos</h2>
-                        <ul className="list-disc ml-6 text-gray-700">
-                            <li>Curso 1: Introdução à Programação</li>
-                            <li>Curso 2: React para Iniciantes</li>
-                            <li>Curso 3: Node.js + MongoDB</li>
-                        </ul>
+
+                        {/* 3. Verificação para ver se o usuário tem cursos */}
+                        {courses && courses.length > 0 ? (
+                            <ul className="space-y-4">
+                                {/* 4. Usamos .map() para iterar sobre a lista de cursos */}
+                                {courses.map((course) => (
+                                    <li key={course._id} className="p-4 bg-gray-50 rounded-lg shadow-sm">
+                                        <h3 className="font-bold text-lg">{course.titulo}</h3>
+                                        <p className="text-gray-600 mt-1">{course.descricao}</p>
+                                        <div className="text-sm text-gray-500 mt-2">
+                                            <span>Duração: {course.duracao}</span> | <span>Nível: {course.nivel}</span>
+                                        </div>
+                                    </li>
+                                ))}
+                            </ul>
+                        ) : (
+                            // 5. Mensagem para quando não há cursos
+                            <p className="text-gray-600">Você ainda não está inscrito em nenhum curso.</p>
+                        )}
                     </div>
                 );
             case "certificados":
@@ -79,7 +92,7 @@ export default function Dashboard() {
 
     return (
         <div className="min-h-screen flex bg-gray-100">
-            
+
             <aside className="w-64 bg-white shadow-md p-6 space-y-4">
                 <h1 className="text-xl font-bold mb-4 text-blue-600">BEEEDU</h1>
                 <MenuItem id="dashboard" label="Dashboard" />

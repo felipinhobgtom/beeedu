@@ -2,11 +2,14 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use MongoDB\Laravel\Eloquent\Model;
 
 class Curso extends Model
 {
     //
+
+    protected $collection = "cursos";
+    protected $connection = 'mongodb';
     protected $fillable = [
         'titulo',
         'empresa_id',
@@ -22,4 +25,10 @@ class Curso extends Model
     protected $casts = [
         'status' => 'boolean',
     ];
+
+    /* public function users() */
+    /* { */
+    /*     return $this->belongsToMany(User::class, null, 'curso_ids', 'user_ids'); */
+    /* } */
+
 }

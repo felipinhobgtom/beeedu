@@ -55,7 +55,17 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
-            'cursos' => 'mongodb.objectid_array'
         ];
+    }
+
+    /**
+     * Define o relacionamento de que um usuário pode ter muitos cursos.
+     * O Laravel/MongoDB irá gerenciar a array 'cursos' de ObjectIds.
+     */
+    public function courses() // Nome no plural é convenção para relacionamentos "Many"
+    {
+        // O Laravel vai procurar por um campo 'curso_ids' (ou 'courses_ids') no User.
+        // Como o seu campo se chama 'cursos', nós o especificamos.
+        return $this->belongsToMany(Curso::class, null, 'user_ids', 'cursos');
     }
 }
