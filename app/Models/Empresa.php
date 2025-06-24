@@ -3,8 +3,10 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use MongoDB\Laravel\Auth\User as Authenticatable;
 
-class Empresa extends Model
+
+class Empresa extends Authenticatable
 {
     protected $fillable = [
         'name',
