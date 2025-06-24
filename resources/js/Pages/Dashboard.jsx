@@ -30,7 +30,7 @@ export default function Dashboard() {
                 return (
                     <div>
                         <h2 className="text-2xl font-bold mb-2">Painel Geral</h2>
-                        <p className="text-gray-600">Bem-vindo, {user.name}! 🎉</p>
+                        <p className="text-gray-600">Bem-vindo, {user.name}!</p>
                     </div>
                 );
             case "perfil":
@@ -79,7 +79,7 @@ export default function Dashboard() {
 
     return (
         <div className="min-h-screen flex bg-gray-100">
-            {/* Sidebar */}
+            
             <aside className="w-64 bg-white shadow-md p-6 space-y-4">
                 <h1 className="text-xl font-bold mb-4 text-blue-600">BEEEDU</h1>
                 <MenuItem id="dashboard" label="Dashboard" />
@@ -98,7 +98,6 @@ export default function Dashboard() {
                 </button>
             </aside>
 
-            {/* Conteúdo principal */}
             <main className="flex-1 p-8">
                 {renderContent()}
             </main>
