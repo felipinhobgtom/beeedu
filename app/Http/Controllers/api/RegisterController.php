@@ -80,7 +80,7 @@ class RegisterController extends Controller
             'role' => 'student',
         ]);
 
-        $this->n8nService->triggerUserWorkflow($user, env("N8N_USER_CREATION_WORKFLOW"));
+        /* $this->n8nService->triggerUserWorkflow($user, env("N8N_USER_CREATION_WORKFLOW")); */
         Auth::login($user);
 
         return redirect()->route('home')->with('success', 'Usuário registrado e logado com sucesso!');
@@ -110,7 +110,7 @@ class RegisterController extends Controller
             'active' => true
         ]);
 
-        $this->n8nService->triggerUserWorkflow($empresa, env("N8N_EMPRESA_CREATION_WORKFLOW"));
+        /* $this->n8nService->triggerUserWorkflow($empresa, env("N8N_EMPRESA_CREATION_WORKFLOW")); */
         Auth::login($empresa);
         return redirect()->route('home')->with('success', 'Usuario de empresa registrado e logado com sucesso!');
     }
