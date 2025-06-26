@@ -1,14 +1,4 @@
 services:
-    postgres:
-        image: postgres:15
-        environment:
-            - POSTGRES_USER=n8n
-            - POSTGRES_PASSWORD=n8n
-            - POSTGRES_DB=n8n
-        volumes:
-            - n8n_postgres_data:/var/lib/postgresql/data
-        networks:
-            - sail
     n8n:
         image: n8nio/n8n
         ports:
