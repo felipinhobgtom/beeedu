@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\api\CursoController;
 use App\Http\Controllers\api\DashboardController;
 use App\Http\Controllers\api\RegisterController;
 use App\Http\Controllers\api\LoginController;
@@ -32,3 +33,5 @@ Route::middleware(['auth'])->group(function () {
         return redirect('/login');
     })->name('logout');
 });
+
+Route::post('/api/add-course', [CursoController::class, 'create_course']);

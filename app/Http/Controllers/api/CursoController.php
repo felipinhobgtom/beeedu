@@ -9,6 +9,24 @@ use Illuminate\Http\Request;
 
 class CursoController extends Controller
 {
+    public function create_course(Request $request)
+    {
+        $validated = $request->validate([
+            'titulo' => 'required|string|max:255|unique:cursos,titulo',
+            'descricao' => 'nullable|string',
+            'duracao' => 'required|string|max:100',
+            'nivel' => 'required|string|in:Iniciante,Intermediário,Avançado',
+            'area_atuacao' => 'required|string|max:255',
+        ]);
+
+        $curso = Curso::create($validated);
+
+        return response()->json([
+            'msg' => 'ok',
+            'curso' => $curso
+        ], 201);
+    }
+
     public function add_curso_to_user(Request $req, User $user)
     {
         $req->validate([

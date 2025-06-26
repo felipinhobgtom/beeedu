@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use MongoDB\Laravel\Auth\User as Authenticatable;
 
 
