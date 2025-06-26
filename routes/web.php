@@ -34,4 +34,6 @@ Route::middleware(['auth'])->group(function () {
     })->name('logout');
 });
 
+Route::get('/courses-crud', [CursoController::class, 'curso_crud_page']);
+
 Route::post('/api/add-course', [CursoController::class, 'create_course']);
