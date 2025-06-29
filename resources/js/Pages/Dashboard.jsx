@@ -2,6 +2,8 @@ import { useState } from "react";
 import { router } from "@inertiajs/react";
 import MeusCursos from "../Components/Cursos/MeusCursos";
 import PerfilUsuario from "../Components/Perfil/Index";
+import Index from "../Components/Dashboard/Index";
+import Sidebar from "../Components/Sidebar/Sidebar";
 
 export default function Dashboard({ auth, courses }) {
     const [selected, setSelected] = useState("dashboard");
@@ -12,30 +14,10 @@ export default function Dashboard({ auth, courses }) {
         router.post("/logout");
     };
 
-    const MenuItem = ({ id, label }) => (
-        <button
-            onClick={() => setSelected(id)}
-            className={`w-full text-left px-4 py-2 rounded transition ${
-                selected === id
-                    ? "bg-blue-600 text-white"
-                    : "text-gray-700 hover:bg-gray-100"
-            }`}
-        >
-            {label}
-        </button>
-    );
-
     const renderContent = () => {
         switch (selected) {
             case "dashboard":
-                return (
-                    <div>
-                        <h2 className="text-2xl font-bold mb-2">
-                            Painel Geral
-                        </h2>
-                        <p className="text-gray-600">Bem-vindo, {user.name}!</p>
-                    </div>
-                );
+                return <Index user={user} />;
             case "perfil":
                 return <PerfilUsuario user={user} />;
             case "cursos":
@@ -64,26 +46,11 @@ export default function Dashboard({ auth, courses }) {
     };
 
     return (
-        <div className="min-h-screen flex bg-gray-100">
-            <aside className="w-64 bg-white shadow-md p-6 space-y-4">
-                <h1 className="text-xl font-bold mb-4 text-blue-600">BEEEDU</h1>
-                <MenuItem id="dashboard" label="Dashboard" />
-                <MenuItem id="perfil" label="Perfil" />
-                <MenuItem id="cursos" label="Meus Cursos" />
-                <MenuItem id="certificados" label="Certificados" />
-                <MenuItem id="mensagens" label="Mensagens" />
-
-                <hr />
-
-                <button
-                    onClick={logout}
-                    className="text-red-500 hover:underline mt-4"
-                >
-                    Sair
-                </button>
-            </aside>
-
-            <main className="flex-1 p-8">{renderContent()}</main>
-        </div>
+        <Sidebar
+            selected={selected}
+            setSelected={setSelected}
+            logout={logout}
+            renderContent={renderContent()}
+        />
     );
 }
